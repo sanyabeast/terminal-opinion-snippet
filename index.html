@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Opinions</title>
+    <style type="text/css">
+        html, body {
+            background: #000000;
+        }
+
+        canvas {
+            border: 1px solid #111111;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+        window.opinions = []
+
+        for (var a = 0; a < 1000; a++){
+            let opinion = window.opinion = new Opinion()
+            document.body.appendChild(opinion.dom)
+
+            opinion.dom.addEventListener("mousemove", (evt)=>{
+                opinion.setValue(evt.offsetY / opinion.state.h)
+            })
+
+            opinion.height = Math.floor(Math.random() * 300 + 200)
+
+            window.opinions[a] = opinion
+            window["opinion" + a] = opinion
+        }
+    </script>
+</body>
+</html>
